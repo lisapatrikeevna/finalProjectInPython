@@ -14,13 +14,8 @@ class Search_film:
 
     @staticmethod
     def set_new_query(query):
-        print("set_new_query", query)
         setDate = "insert into sakila_top(word_query) values(%s);"
-        # Дополнительная диагностика
-        print("Before getting DB connection")
-        # Получаем соединение и курсор
         connection, cursor = Connector.get_db_connection_write()
-        print(setDate)
         # Проверяем, что соединение и курсор успешно созданы
         if connection and cursor:
             try:
@@ -67,7 +62,6 @@ class Search_film:
 
     @staticmethod
     def byActor(word):
-        # arrOfFrequentlyRepeatedQueries.append(word)
         Search_film.set_new_query(word)
         selectDate = """
                         select f.title, f.description, f.release_year, f.special_features,
@@ -91,7 +85,6 @@ class Search_film:
 
     @staticmethod
     def byKeywordInDescription(word):
-        # arrOfFrequentlyRepeatedQueries.append(word)
         Search_film.set_new_query(word)
         selectDate = """
                         select f.title, f.description, f.release_year, f.special_features,
@@ -116,8 +109,6 @@ class Search_film:
     @staticmethod
     def byGenreAndYear(genre, year):
         Search_film.set_new_query(f"Genre: {genre}, Year: {year}")
-        # arrOfFrequentlyRepeatedQueries.append(f"{genre}, {year}")
-        print(f"byGenreAndYear; Genre: {genre}, Year: {year}")
 
         selectDate = """
                         select f.title, f.description, f.release_year, f.special_features,
@@ -134,12 +125,9 @@ class Search_film:
 
         connection, cursor = Connector.get_db_connection_read()
         if connection and cursor:
-            print("index.py if", f"Genre: {genre}, Year: {year}")
             cursor.execute(selectDate, (genre, year))
             res = cursor.fetchall()
-            print("res", res)
             #     close_db_connection(connection, cursor)
-            print("arrOfFrequentlyRepeatedQueries", arrOfFrequentlyRepeatedQueries)
             return res
         else:
             return []
@@ -151,11 +139,9 @@ class Search_film:
         """
         connection, cursor = Connector.get_db_connection_write()
         if connection and cursor:
-            print("index.py 95")
             cursor.execute(getDate)
             res = cursor.fetchall()
             #     close_db_connection(connection, cursor)
-            print(res)
             return Counter(value for _, value in res)
 
 
