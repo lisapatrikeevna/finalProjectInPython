@@ -27,18 +27,18 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "lisapatrikeevna"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;lisapatrikeevna&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "git@github.com:lisapatrikeevna/finalProjectInPython.git",
-    "accountId": "fe2ea37c-aeb9-45af-9bef-e6fa526cbc23"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;git@github.com:lisapatrikeevna/finalProjectInPython.git&quot;,
+    &quot;accountId&quot;: &quot;fe2ea37c-aeb9-45af-9bef-e6fa526cbc23&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
 }</component>
@@ -58,7 +58,7 @@
     "Python.main.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "lisa",
+    "git-widget-placeholder": "master",
     "last_opened_file_path": "/Users/natalybondarenko/D/work/python/testDocker",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
