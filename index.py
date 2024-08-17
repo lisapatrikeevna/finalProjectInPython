@@ -22,8 +22,7 @@ class Search_film:
                 cursor.execute(setDate, (query,))
                 connection.commit()  # Подтверждаем изменения
             except mysql.connector.Error as err:  # Обрабатываем ошибки выполнения запроса
-                print(f"Ошибка при выполнении запроса: {err}")
-                return f"Search_film Ошибка при выполнении запроса: {err}"
+                return f"Search_film, Ошибка при выполнении запроса: {err}"
             finally:
                 Connector.close_db_connection(connection, cursor)
         else:
@@ -53,9 +52,11 @@ class Search_film:
                     """
         connection, cursor = Connector.get_db_connection_read()
         if connection and cursor:
-            cursor.execute(selectDate, (f'%{word}%', f'%{word}%', f'%{word}%', f'%{word}%', f'%{word}%', f'%{word}%'))
-            res = cursor.fetchall()
-            # close_db_connection(connection, cursor)
+            try:
+                cursor.execute(selectDate, (f'%{word}%', f'%{word}%', f'%{word}%', f'%{word}%', f'%{word}%', f'%{word}%'))
+                res = cursor.fetchall()
+            finally:
+                Connector.close_db_connection(connection, cursor)
             return res
         else:
             return []
@@ -76,9 +77,11 @@ class Search_film:
                     """
         connection, cursor = Connector.get_db_connection_read()
         if connection and cursor:
-            cursor.execute(selectDate, (f'%{word}%',))
-            res = cursor.fetchall()
-            # close_db_connection(connection, cursor)
+            try:
+                cursor.execute(selectDate, (f'%{word}%',))
+                res = cursor.fetchall()
+            finally:
+                Connector.close_db_connection(connection, cursor)
             return res
         else:
             return []
@@ -99,9 +102,11 @@ class Search_film:
                     """
         connection, cursor = Connector.get_db_connection_read()
         if connection and cursor:
-            cursor.execute(selectDate, (f'%{word}%',))
-            res = cursor.fetchall()
-            # close_db_connection(connection, cursor)
+            try:
+                cursor.execute(selectDate, (f'%{word}%',))
+                res = cursor.fetchall()
+            finally:
+                Connector.close_db_connection(connection, cursor)
             return res
         else:
             return []
@@ -125,9 +130,11 @@ class Search_film:
 
         connection, cursor = Connector.get_db_connection_read()
         if connection and cursor:
-            cursor.execute(selectDate, (genre, year))
-            res = cursor.fetchall()
-            #     close_db_connection(connection, cursor)
+            try:
+                cursor.execute(selectDate, (genre, year))
+                res = cursor.fetchall()
+            finally:
+                Connector.close_db_connection(connection, cursor)
             return res
         else:
             return []
@@ -139,10 +146,11 @@ class Search_film:
         """
         connection, cursor = Connector.get_db_connection_write()
         if connection and cursor:
-            cursor.execute(getDate)
-            res = cursor.fetchall()
-            #     close_db_connection(connection, cursor)
+            try:
+                cursor.execute(getDate)
+                res = cursor.fetchall()
+            finally:
+                Connector.close_db_connection(connection, cursor)
             return Counter(value for _, value in res)
 
 
-# close_db_connection(connection, cursor)
