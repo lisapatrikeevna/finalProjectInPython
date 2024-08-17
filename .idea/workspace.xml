@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="da2719d5-683a-4a23-b840-94be26493121" name="Changes" comment="add configWrite, set_new_query">
+    <list default="true" id="da2719d5-683a-4a23-b840-94be26493121" name="Changes" comment="add .gitignore">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bot.py" beforeDir="false" afterPath="$PROJECT_DIR$/bot.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/botUtils.py" beforeDir="false" afterPath="$PROJECT_DIR$/botUtils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/connector.py" beforeDir="false" afterPath="$PROJECT_DIR$/connector.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.py" beforeDir="false" afterPath="$PROJECT_DIR$/index.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,8 +20,25 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;lisapatrikeevna&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;git@github.com:lisapatrikeevna/finalProjectInPython.git&quot;,
+    &quot;accountId&quot;: &quot;fe2ea37c-aeb9-45af-9bef-e6fa526cbc23&quot;
+  }
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
 }</component>
@@ -55,6 +68,7 @@
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
+    "ChangesTree.GroupingKeys": [],
     "DatabaseDriversLRU": [
       "mysql"
     ]
@@ -135,7 +149,7 @@
       <option name="presentableId" value="Default" />
       <updated>1723029357211</updated>
       <workItem from="1723029358943" duration="46947000" />
-      <workItem from="1723833218170" duration="40941000" />
+      <workItem from="1723833218170" duration="43269000" />
     </task>
     <task id="LOCAL-00001" summary="add configWrite, set_new_query">
       <option name="closed" value="true" />
@@ -145,7 +159,23 @@
       <option name="project" value="LOCAL" />
       <updated>1723900922556</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="add functions search_in_description, search_by_actor">
+      <option name="closed" value="true" />
+      <created>1723916893205</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1723916893205</updated>
+    </task>
+    <task id="LOCAL-00003" summary="add .gitignore">
+      <option name="closed" value="true" />
+      <created>1723918536397</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1723918536397</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -153,7 +183,9 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="add configWrite, set_new_query" />
-    <option name="LAST_COMMIT_MESSAGE" value="add configWrite, set_new_query" />
+    <MESSAGE value="add functions search_in_description, search_by_actor" />
+    <MESSAGE value="add .gitignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="add .gitignore" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
