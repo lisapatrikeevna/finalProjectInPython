@@ -1,0 +1,10 @@
+
+
+x-app-as-service: &app_as_service
+  build: .
+
+
+services:
+  app:
+    <<: *app_as_service
+    command: /start.sh

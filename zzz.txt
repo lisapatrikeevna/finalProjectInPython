@@ -1,0 +1,22 @@
+*/docker build -t my-python-app .
+*/docker run my-python-app
+docker compose up --build
+
+
+
+преесборка образа
+
+docker ps - показ работ контейнеры чтоб узн "id-container"
+docker stop 4c748082b05f
+docker rm -f 4c748082b05f  Если вы хотите удалить контейнер без остановки, можно использовать флаг -f (force):
+docker rm id-container удал конт
+docker images чтоб узн id-image
+docker build -t id-image .  пересобир образ
+docker run --name urod -d id-image
+
+
+
+
+
+
+---------

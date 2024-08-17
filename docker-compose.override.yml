@@ -1,0 +1,9 @@
+
+services:
+  app:
+    ports:
+      - 88:8443
+    user: "${UID}"
+    volumes:
+      - ./db:/wd/db:rw
+      - ./log:/wd/log:rw
