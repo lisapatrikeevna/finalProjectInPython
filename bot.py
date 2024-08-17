@@ -1,7 +1,7 @@
 import logging
 import telebot
 from telebot import types
-from botUtils import get_columns
+from botUtils import get_columns, top_query_sort
 from configs import botKey
 from index import Search_film
 
@@ -22,8 +22,10 @@ def create_keyboard():
     keyboard = types.ReplyKeyboardMarkup(row_width=2, resize_keyboard=True)
     button1 = types.KeyboardButton('По ключевому слову')
     button2 = types.KeyboardButton('По жанру & году')
-    button3 = types.KeyboardButton('Top')
-    keyboard.add(button1, button2, button3)
+    button3 = types.KeyboardButton('По имени актёра')
+    button4 = types.KeyboardButton('По слову в описании')
+    button5 = types.KeyboardButton('Top')
+    keyboard.add(button1, button2, button3, button4, button5)
     return keyboard
 
 
@@ -51,11 +53,16 @@ def info(message):
     elif text == 'по ключевому слову':
         bot.send_message(message.chat.id, 'Please enter the keyword you want to search for.')
         bot.register_next_step_handler(message, search_by_keyword)
-    elif text == 'по жанру & году':
+    elif text == 'По жанру & году'.lower():
         bot.send_message(message.chat.id, 'Please enter the year you want to search for.')
         bot.register_next_step_handler(message, search_by_genre_and_year)
+    elif text == 'По слову в описании'.lower():
+        bot.send_message(message.chat.id, 'Please enter the year you want to search for.')
+        bot.register_next_step_handler(message, search_in_description)
+    elif text == 'По имени актёра'.lower():
+        bot.send_message(message.chat.id, 'Please enter the year you want to search for.')
+        bot.register_next_step_handler(message, search_by_actor)
     elif text == 'Top'.lower():
-        print("58 Текст команды:", text)
         bot.send_message(message.chat.id, 'selected query')
         # bot.register_next_step_handler(message, get_top)
         get_top(message)
@@ -69,6 +76,40 @@ def search_by_keyword(message):
     try:
         res = Search_film.byKeyword(keyword)
         print("62 line", res)
+        if len(res) == 0:
+            print("if len(res) == 0")
+            bot.send_message(message.chat.id, 'no movies found for this request')
+        else:
+            result_films = get_columns(res)
+            for item_film in result_films:
+                bot.send_message(message.chat.id, item_film)
+    except Exception as err:
+        bot.send_message(message.chat.id, str(err))
+
+
+def search_in_description(message):
+    keyword = message.text
+    print("keyword", keyword)
+    try:
+        res = Search_film.byKeywordInDescription(keyword)
+        print("92 line", res)
+        if len(res) == 0:
+            print("if len(res) == 0")
+            bot.send_message(message.chat.id, 'no movies found for this request')
+        else:
+            result_films = get_columns(res)
+            for item_film in result_films:
+                bot.send_message(message.chat.id, item_film)
+    except Exception as err:
+        bot.send_message(message.chat.id, str(err))
+
+
+def search_by_actor(message):
+    keyword = message.text
+    print("keyword", keyword)
+    try:
+        res = Search_film.byActor(keyword)
+        print("92 line", res)
         if len(res) == 0:
             print("if len(res) == 0")
             bot.send_message(message.chat.id, 'no movies found for this request')
@@ -112,23 +153,24 @@ def search_by_genre_and_year(message):
         bot.send_message(message.chat.id, str(err))
 
 
-# def get_top(message):
-#     print('get_top')
-#     res = Search_film.getPopularQueries()
-#     print("113 line", res)
-#     bot.send_message(message.chat.id, "\n".join(res))  # Отправка списка популярных запросов в виде сообщения
 def get_top(message):
     print('Entering get_top function')  # Отладочная информация
     try:
         res = Search_film.getPopularQueries()
-        print("113 line", res)  # Добавьте больше отладочной информации
+        # print("113 line", res)  # Добавьте больше отладочной информации
         if not res:
             bot.send_message(message.chat.id, "No popular queries found.")
         else:
-            bot.send_message(message.chat.id, "\n".join(res))  # Отправка списка популярных запросов
+            sorted_res = top_query_sort(res)
+            print("sorted_res", sorted_res)
+            # bot.send_message(message.chat.id, "\n".join(sorted_res))  # Отправка списка популярных запросов
+            for item in sorted_res:
+                print(f"{item[0]} - {item[1]} times")
+                bot.send_message(message.chat.id, f"{item[0]} - {item[1]} times")
     except Exception as err:
         print(f"Произошла ошибка в get_top: {err}")
         bot.send_message(message.chat.id, "An error occurred while fetching the top queries.")
+
 
 # ????????
 # @bot.message_handler ( func = lambda message : True )

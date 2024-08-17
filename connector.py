@@ -2,7 +2,7 @@ import mysql.connector
 from mysql.connector import errorcode
 from configs import configRiad,configWrite
 
-# connectorRead.py
+# connector.py
 class Connector:
     @staticmethod
     def get_db_connection_read():
@@ -35,3 +35,5 @@ class Connector:
             cursor.close()
         if connection:
             connection.close()
+
+
